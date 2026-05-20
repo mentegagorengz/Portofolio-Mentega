@@ -107,8 +107,8 @@ export default function ProjectsSection({ dbProjects }: ProjectsSectionProps) {
           <h2 className="font-serif text-4xl font-bold text-[#573D00] md:text-5xl">
             My Projects
           </h2>
-          <div className="mx-auto mt-4 h-1 w-20 bg-[#D4A843] rounded-full"></div>
-          <p className="font-serif text-lg italic text-[#8B7355] mt-4 max-w-xl mx-auto">
+          <div className="mx-auto mt-4 h-1 w-20 bg-[#FFC054] rounded-full"></div>
+          <p className="font-serif text-lg italic text-[#573D00]/70 mt-4 max-w-xl mx-auto">
             Koleksi karya lintas disiplin dari pembuatan aplikasi web, desain visual kreatif, dokumentasi fotografi, hingga penyuntingan video.
           </p>
         </ScrollReveal>
@@ -127,8 +127,8 @@ export default function ProjectsSection({ dbProjects }: ProjectsSectionProps) {
               onClick={() => setActiveCategory(cat.id)}
               className={`flex items-center gap-2 rounded-full px-5 py-2.5 font-sans text-sm font-semibold transition-all duration-300 ${
                 activeCategory === cat.id
-                  ? "bg-[#573D00] text-[#FFF6F1] shadow-md scale-102"
-                  : "bg-[#FFFFFF] text-[#573D00] border border-[#E8E2DE] hover:border-[#D4A843] hover:text-[#D4A843]"
+                  ? "bg-[#573D00] text-[#FEF9F6] shadow-md scale-102"
+                  : "bg-[#FEF9F6] text-[#573D00] border border-[#FFDBA3]/30 hover:border-[#FFC054] hover:text-[#FFC054]"
               }`}
             >
               {getCategoryIcon(cat.id)}
@@ -156,7 +156,7 @@ export default function ProjectsSection({ dbProjects }: ProjectsSectionProps) {
                   />
                   
                   {/* Category Pill */}
-                  <span className="absolute top-4 left-4 z-20 flex items-center gap-1.5 rounded-full bg-[#FFF6F1]/90 backdrop-blur-sm border border-[#E8E2DE] px-3 py-1.5 text-xs font-bold text-[#573D00]">
+                  <span className="absolute top-4 left-4 z-20 flex items-center gap-1.5 rounded-full bg-[#FEF9F6]/90 backdrop-blur-sm border border-[#FFDBA3]/30 px-3 py-1.5 text-xs font-bold text-[#573D00]">
                     {getCategoryIcon(proj.category)}
                     {proj.categoryLabel}
                   </span>
@@ -164,7 +164,7 @@ export default function ProjectsSection({ dbProjects }: ProjectsSectionProps) {
                   {/* Play badge for videos */}
                   {proj.category === "editing" && (
                     <div className="absolute inset-0 flex items-center justify-center z-10 opacity-70 group-hover:opacity-100 transition-opacity">
-                      <div className="flex items-center justify-center w-14 h-14 rounded-full bg-[#573D00]/80 text-[#FFF6F1] border border-[#FFF6F1]/30">
+                      <div className="flex items-center justify-center w-14 h-14 rounded-full bg-[#573D00]/80 text-[#FEF9F6] border border-[#FEF9F6]/30">
                         <Play className="w-6 h-6 fill-current ml-0.5" />
                       </div>
                     </div>
@@ -174,14 +174,14 @@ export default function ProjectsSection({ dbProjects }: ProjectsSectionProps) {
                 {/* Hover Glassmorphic Overlay */}
                 <div className="project-card__overlay">
                   <div className="project-card__glass">
-                    <h3 className="font-serif text-xl font-bold text-[#FFF6F1]">
+                    <h3 className="font-serif text-xl font-bold text-[#FEF9F6]">
                       {proj.title}
                     </h3>
-                    <p className="font-sans text-xs text-[#FFF6F1]/80 mt-1 line-clamp-2">
+                    <p className="font-sans text-xs text-[#FEF9F6]/80 mt-1 line-clamp-2">
                       {proj.description}
                     </p>
                     {proj.techStack && (
-                      <span className="inline-block mt-3 text-[10px] uppercase font-bold tracking-wider text-[#D4A843] bg-[#FFF6F1]/10 px-2 py-1 rounded">
+                      <span className="inline-block mt-3 text-[10px] uppercase font-bold tracking-wider text-[#FFC054] bg-[#FEF9F6]/10 px-2 py-1 rounded">
                         {proj.techStack}
                       </span>
                     )}
@@ -195,20 +195,20 @@ export default function ProjectsSection({ dbProjects }: ProjectsSectionProps) {
 
       {/* Lightbox / Video Modal Embed */}
       {selectedProject && (
-        <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <ScrollReveal threshold={0} className="relative w-full max-w-4xl rounded-2xl bg-[#FFF6F1] border border-[#E8E2DE] overflow-hidden shadow-2xl">
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-[#573D00]/80 backdrop-blur-sm p-4">
+          <ScrollReveal threshold={0} className="relative w-full max-w-4xl rounded-2xl bg-[#FEF9F6] border border-[#FFDBA3]/30 overflow-hidden shadow-2xl">
             
             {/* Close Button */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 z-50 flex items-center justify-center w-10 h-10 rounded-full bg-[#573D00]/80 text-[#FFF6F1] border border-[#FFF6F1]/30 transition-transform hover:scale-110"
+              className="absolute top-4 right-4 z-50 flex items-center justify-center w-10 h-10 rounded-full bg-[#573D00]/80 text-[#FEF9F6] border border-[#FEF9F6]/30 transition-transform hover:scale-110"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="grid grid-cols-1 md:grid-cols-12">
               {/* Media Area (Left/Top) */}
-              <div className="md:col-span-7 bg-black min-h-[300px] flex items-center justify-center relative">
+              <div className="md:col-span-7 bg-[#573D00] min-h-[300px] flex items-center justify-center relative">
                 {selectedProject.videoEmbedUrl ? (
                   /* Video Embed Player */
                   <div className="w-full aspect-video">
@@ -233,7 +233,7 @@ export default function ProjectsSection({ dbProjects }: ProjectsSectionProps) {
               {/* Text Area (Right/Bottom) */}
               <div className="md:col-span-5 p-6 md:p-8 flex flex-col justify-between">
                 <div>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#E8B94A]/25 border border-[#D4A843]/30 px-3 py-1 text-xs font-bold text-[#573D00] uppercase">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FFC054]/25 border border-[#FFC054]/30 px-3 py-1 text-xs font-bold text-[#573D00] uppercase">
                     {getCategoryIcon(selectedProject.category)}
                     {selectedProject.categoryLabel}
                   </span>
@@ -248,7 +248,7 @@ export default function ProjectsSection({ dbProjects }: ProjectsSectionProps) {
 
                   {selectedProject.techStack && (
                     <div className="mt-6">
-                      <h4 className="font-sans text-xs uppercase font-bold tracking-wider text-[#8B7355]">
+                      <h4 className="font-sans text-xs uppercase font-bold tracking-wider text-[#573D00]/70">
                         Tools / Tech Stack
                       </h4>
                       <p className="font-sans text-sm font-semibold text-[#573D00] mt-1">
@@ -266,7 +266,7 @@ export default function ProjectsSection({ dbProjects }: ProjectsSectionProps) {
                         href={selectedProject.liveUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-2 rounded-lg bg-[#573D00] text-[#FFF6F1] px-5 py-2.5 text-sm font-bold shadow-md hover:bg-[#D4A843] transition-colors"
+                        className="flex items-center gap-2 rounded-lg bg-[#573D00] text-[#FEF9F6] px-5 py-2.5 text-sm font-bold shadow-md hover:bg-[#FFC054] transition-colors"
                       >
                         Visit Site
                         <ExternalLink className="w-4 h-4" />
@@ -277,7 +277,7 @@ export default function ProjectsSection({ dbProjects }: ProjectsSectionProps) {
                         href={selectedProject.repoUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-2 rounded-lg border border-[#E8E2DE] bg-white text-[#573D00] px-5 py-2.5 text-sm font-bold hover:border-[#D4A843] transition-colors"
+                        className="flex items-center gap-2 rounded-lg border border-[#FFDBA3]/50 bg-[#FEF9F6] text-[#573D00] px-5 py-2.5 text-sm font-bold hover:border-[#FFC054] transition-colors"
                       >
                         Code Repo
                       </a>

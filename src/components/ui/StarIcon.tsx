@@ -8,19 +8,19 @@ export default function StarIcon({ className = "" }: { className?: string }) {
     >
       <path
         d="M20 2C20 2 22 14 20 20C18 14 20 2 20 2Z"
-        fill="#D4A843"
+        fill="#FFC054"
       />
       <path
         d="M20 38C20 38 18 26 20 20C22 26 20 38 20 38Z"
-        fill="#D4A843"
+        fill="#FFC054"
       />
       <path
         d="M2 20C2 20 14 18 20 20C14 22 2 20 2 20Z"
-        fill="#D4A843"
+        fill="#FFC054"
       />
       <path
         d="M38 20C38 20 26 22 20 20C26 18 38 20 38 20Z"
-        fill="#D4A843"
+        fill="#FFC054"
       />
     </svg>
   );

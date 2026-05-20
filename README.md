@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧈 Portofolio Mentega
 
-## Getting Started
+Portofolio digital premium yang dirancang khusus untuk memadukan pengembangan teknologi, desain visual kreatif, dan seni dokumentasi media. Website ini mengusung estetika majalah cetak/seni mewah dengan skema warna organik hangat tanpa menggunakan unsur warna hitam pekat (No-Black Color Palette).
 
-First, run the development server:
+## 🚀 Teknologi Utama (Tech Stack)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Website ini dibangun menggunakan teknologi web modern berkinerja tinggi:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js (App Router)**: Framework React tingkat lanjut untuk performa rendering statis/dinamis yang optimal.
+- **React 19**: Pustaka antarmuka pengguna berbasis komponen yang reaktif.
+- **Tailwind CSS v4**: Utilitas gaya modern berkinerja tinggi untuk tata letak responsif dan visual premium.
+- **TypeScript**: Keamanan tipe data statis di seluruh komponen untuk penulisan kode yang andal.
+- **Drizzle ORM & MySQL**: Peta relasional database (ORM) modern berlatensi rendah untuk manajemen proyek/pengalaman.
+- **Lucide React**: Rangkaian ikon vektor minimalis nan cantik.
+- **Intersection Observer API**: Sistem pemicu animasi keluar-masuk (exit/entrance) asimetris yang cerdas saat digulir.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Palet Warna Resmi (No-Black Palette)
+Untuk menghadirkan visual yang hangat dan menyatu secara artistik, website ini sepenuhnya menghindari warna hitam pekat (`#000000`) dan menggunakan kombinasi hex berikut:
+- 🧈 **`#FFC054`** (Gold Premium)
+- ☕ **`#573D00`** (Accent Espresso Bronze)
+- 🏜️ **`#FFDBA3`** (Sandy Light Gold)
+- 🥛 **`#FEF9F6`** (Warm Cream/Base White)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Cara Menjalankan Secara Lokal
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Instalasi Dependensi**:
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Menjalankan Server Pengembangan**:
+   ```bash
+   npm run dev
+   ```
+   Buka [http://localhost:3000](http://localhost:3000) pada peramban Anda untuk melihat hasilnya.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Kompilasi Produksi**:
+   ```bash
+   npm run build
+   ```
