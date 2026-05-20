@@ -1,26 +1,343 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #FFF6F1;
   --foreground: #171717;
+  --accent: #573D00;
+  --gold: #D4A843;
+  --gold-light: #E8B94A;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===========================
+   Hero Section
+   =========================== */
+
+.hero-section {
+  position: relative;
+  height: 832px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 72rem;
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 6%;
+}
+
+/* Title */
+.hero-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.hero-title__highlight {
+  color: var(--gold);
+}
+
+/* Subtitle */
+.hero-subtitle {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  font-style: italic;
+  color: #8B7355;
+  max-width: 28rem;
+  line-height: 1.6;
+}
+
+/* ===========================
+   Decorative Stars
+   =========================== */
+
+.hero-star {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-star__icon--lg {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.hero-star__icon--sm {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+/* Star positions matching reference */
+.hero-star--1 {
+  top: 20%;
+  left: 18%;
+  animation: starFloat 4s ease-in-out infinite;
+}
+
+.hero-star--2 {
+  top: 32%;
+  left: 52%;
+  animation: starFloat 5s ease-in-out infinite 1s;
+}
+
+/* ===========================
+   Decorative Clouds
+   =========================== */
+
+.hero-cloud {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-cloud__icon--md {
+  width: 6.5rem;
+  height: auto;
+}
+
+.hero-cloud__icon--sm {
+  width: 4.5rem;
+  height: auto;
+}
+
+/* Cloud positions matching reference */
+.hero-cloud--1 {
+  top: 34%;
+  left: 10%;
+  animation: cloudFloat 6s ease-in-out infinite;
+}
+
+.hero-cloud--2 {
+  top: 26%;
+  left: 35%;
+  animation: cloudFloat 7s ease-in-out infinite 1.5s;
+}
+
+.hero-cloud--3 {
+  top: 52%;
+  left: 54%;
+  animation: cloudFloat 8s ease-in-out infinite 3s;
+}
+
+/* ===========================
+   Animations
+   =========================== */
+
+@keyframes starFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes cloudFloat {
+
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+
+  50% {
+    transform: translateX(10px) translateY(-5px);
+  }
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 6rem 1.25rem 3rem;
+  }
+
+  .hero-content {
+    padding-left: 0.5rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .hero-cloud__icon--md {
+    width: 5rem;
+    height: 3rem;
+  }
+
+  .hero-cloud__icon--sm {
+    width: 3.5rem;
+    height: 2rem;
+  }
+
+  .hero-star__icon--lg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .hero-star__icon--sm {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .hero-cloud--3 {
+    right: 10%;
+  }
+
+  .hero-star--2 {
+    right: 15%;
+  }
+}
+
+/* ===========================
+   About Section
+   =========================== */
+
+.about-section {
+  position: relative;
+  width: 100%;
+  height: 832px;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+
+.about-container {
+  position: relative;
+  max-width: 1280px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* About text */
+.about-text {
+  position: absolute;
+  width: 411px;
+  left: 175px;
+  top: 197px;
+  font-family: var(--font-source-serif), 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 34px;
+  text-align: justify;
+  color: #573D00;
+}
+
+/* Profile card */
+.about-card {
+  position: absolute;
+  width: 308px;
+  height: 438px;
+  left: 702px;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: visible;
+}
+
+.about-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===========================
+   About Responsive
+   =========================== */
+
+@media (max-width: 1024px) {
+  .about-container {
+    max-width: 100%;
+  }
+
+  .about-text {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    max-width: 50%;
+    padding: 4rem 2rem;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .about-card {
+    left: auto;
+    right: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    height: auto;
+    min-height: auto;
+    padding: 4rem 1.25rem;
+  }
+
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    height: auto;
+    padding: 2rem 0;
+  }
+
+  .about-text {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    max-width: 100%;
+    padding: 0 1rem;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .about-card {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 240px;
+    height: 340px;
+  }
+
+  .about-card__image {
+    width: 250px;
+    left: -8px;
+    top: 60px;
+  }
 }
