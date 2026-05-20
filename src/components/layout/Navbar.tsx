@@ -1,25 +1,29 @@
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="/" className="text-lg font-bold tracking-tight text-accent">
-          My Portofolio
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FFF6F1]/80 backdrop-blur-md border-b border-[#E8E2DE]/30">
+      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
+        <a href="#home" className="font-serif text-xl font-bold tracking-tight text-[#573D00] hover:text-[#D4A843] transition-colors">
+          Mentega<span className="text-[#D4A843]">.</span>
         </a>
-        <div className="flex items-center gap-6 text-sm font-medium text-accent">
-          <a href="#home" className="transition-opacity hover:opacity-70">
+        <div className="flex items-center gap-6 font-sans text-sm font-semibold text-[#573D00]">
+          <a href="#home" className="transition-colors hover:text-[#D4A843]">
             Home
           </a>
-          <a href="#about" className="transition-opacity hover:opacity-70">
-            About me
+          <a href="#about" className="transition-colors hover:text-[#D4A843]">
+            About
           </a>
-          <a href="#experience" className="transition-opacity hover:opacity-70">
+          <a href="#experience" className="transition-colors hover:text-[#D4A843]">
             Experience
           </a>
-          <a href="#project" className="transition-opacity hover:opacity-70">
-            Project
+          <a href="#project" className="transition-colors hover:text-[#D4A843]">
+            Projects
+          </a>
+          <a href="#contact" className="transition-colors hover:text-[#D4A843]">
+            Contact
           </a>
         </div>
       </div>
     </nav>
   );
 }
+

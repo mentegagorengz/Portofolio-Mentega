@@ -1,6 +1,10 @@
-export default function HeroSection() {
+interface HeroSectionProps {
+  isActive?: boolean;
+}
+
+export default function HeroSection({ isActive = true }: HeroSectionProps) {
   return (
-    <section id="home" className="hero-section">
+    <section id="home" className={`hero-section ${isActive ? "active" : ""}`}>
       {/* Decorative elements — your custom assets */}
 
       {/* Star - top left area */}
@@ -31,12 +35,17 @@ export default function HeroSection() {
       {/* Main content */}
       <div className="hero-content">
         <h1 className="hero-title">
-          Mengubah Ide Biasa
-          <br />
-          Menjadi Pengalaman
-          <br />
-          Digital{" "}
-          <span className="hero-title__highlight">Luar Biasa.</span>
+          <span className="hero-title-line hero-title-line--1">
+            <span>Mengubah Ide Biasa</span>
+          </span>
+          <span className="hero-title-line hero-title-line--2">
+            <span>Menjadi Pengalaman</span>
+          </span>
+          <span className="hero-title-line hero-title-line--3">
+            <span>
+              Digital <span className="hero-title__highlight">Luar Biasa.</span>
+            </span>
+          </span>
         </h1>
         <p className="hero-subtitle">
           Capek kan liat Karya yang gitu-gitu aja? Sini gue beresin.
@@ -45,3 +54,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
