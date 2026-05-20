@@ -1,10 +1,87 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 interface HeroSectionProps {
   isActive?: boolean;
 }
 
 export default function HeroSection({ isActive = true }: HeroSectionProps) {
+  const [isInView, setIsInView] = useState(true);
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<any>(null);
+
+  useEffect(() => {
+    const currentSection = sectionRef.current;
+    if (!currentSection) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.05,
+      }
+    );
+
+    observer.observe(currentSection);
+    return () => {
+      if (currentSection) {
+        observer.unobserve(currentSection);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > 80) {
+        // Scroll down: instantly trigger exiting state
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
+        setIsScrolledDown(true);
+      } else if (currentScroll <= 10) {
+        // Scroll back to top: trigger entrance with smart delay
+        if (!timeoutRef.current) {
+          timeoutRef.current = setTimeout(() => {
+            setIsScrolledDown(false);
+            timeoutRef.current = null;
+          }, 350);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  const isExiting = isActive && (isScrolledDown || !isInView);
+  const isActuallyActive = isActive && !isScrolledDown && isInView;
+
+  let animationClass = "";
+  if (isActuallyActive) {
+    animationClass = "active";
+  } else if (isExiting) {
+    animationClass = "exiting";
+  }
+
   return (
-    <section id="home" className={`hero-section ${isActive ? "active" : ""}`}>
+    <section
+      ref={sectionRef}
+      id="home"
+      className={`hero-section ${animationClass}`}
+    >
       {/* Decorative elements — your custom assets */}
 
       {/* Star - top left area */}
@@ -54,4 +131,5 @@ export default function HeroSection({ isActive = true }: HeroSectionProps) {
     </section>
   );
 }
+
 

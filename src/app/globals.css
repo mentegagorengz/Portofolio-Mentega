@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FFF6F1;
-  --foreground: #171717;
+  --background: #FEF9F6;
+  --foreground: #573D00;
   --accent: #573D00;
-  --gold: #D4A843;
-  --gold-light: #E8B94A;
+  --gold: #FFC054;
+  --gold-light: #FFDBA3;
 }
 
 @theme inline {
@@ -230,7 +230,7 @@ body {
   position: relative;
   width: 100%;
   height: 832px;
-  background: #FFFFFF;
+  background: var(--background);
   overflow: hidden;
 }
 
@@ -361,13 +361,13 @@ body {
   width: 100%;
   z-index: 0;
   overflow: hidden;
-  background: #FFF6F1;
+  background: var(--background);
 }
 
 .parallax-content-wrapper {
   position: relative;
   z-index: 10;
-  background: #FFFFFF;
+  background: var(--background);
   box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.03);
 }
 
@@ -444,6 +444,73 @@ body {
   animation: starEntrance 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards, starFloat 5s ease-in-out infinite 1.8s;
 }
 
+/* --------------------------------------------------------------------------
+   Hero Exiting Transitions (Scroll Out)
+   -------------------------------------------------------------------------- */
+.hero-section.exiting .hero-cloud--1,
+.hero-section.exiting .hero-cloud--2,
+.hero-section.exiting .hero-cloud--3,
+.hero-section.exiting .hero-star--1,
+.hero-section.exiting .hero-star--2,
+.hero-section.exiting .hero-title-line span,
+.hero-section.exiting .hero-subtitle {
+  animation: none !important;
+}
+
+.hero-section.exiting .hero-cloud--1 {
+  opacity: 0;
+  transform: translateX(-150px) translateY(10px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-section.exiting .hero-cloud--2 {
+  opacity: 0;
+  transform: translateX(-150px) translateY(-30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-section.exiting .hero-cloud--3 {
+  opacity: 0;
+  transform: translateX(150px) translateY(10px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-section.exiting .hero-star--1 {
+  opacity: 0;
+  transform: scale(0.2) rotate(-45deg);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-section.exiting .hero-star--2 {
+  opacity: 0;
+  transform: scale(0.2) rotate(45deg);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-section.exiting .hero-title-line--1 span {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-section.exiting .hero-title-line--2 span {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.05s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+}
+
+.hero-section.exiting .hero-title-line--3 span {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.hero-section.exiting .hero-subtitle {
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
 /* Keyframes */
 @keyframes textRevealUp {
   from {
@@ -507,7 +574,7 @@ body {
   position: relative;
   width: 100%;
   min-height: 832px;
-  background: #FFFFFF;
+  background: var(--background);
   padding: 6rem 2rem;
 }
 
@@ -538,7 +605,7 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: var(--background);
   border: 2px solid #EAEAEA;
   z-index: 10;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -558,7 +625,7 @@ body {
   position: relative;
   width: 100%;
   min-height: 832px;
-  background: #FFF6F1;
+  background: var(--background);
   padding: 6rem 2rem;
 }
 
@@ -567,7 +634,7 @@ body {
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #E8E2DE;
-  background: #FFFFFF;
+  background: var(--background);
   aspect-ratio: 4/3;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
@@ -629,9 +696,37 @@ body {
   position: relative;
   width: 100%;
   min-height: 600px;
-  background: #FFFFFF;
-  padding: 6rem 2rem;
+  background: var(--accent);
+  padding: 8rem 2rem 2rem 2rem;
   overflow: hidden;
+  color: var(--background);
+}
+
+.contact-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 2.8rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--accent);
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 9999px;
+  box-shadow: 0 8px 25px rgba(255, 192, 84, 0.18);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact-cta-btn:hover {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255, 192, 84, 0.35);
+}
+
+.contact-cta-btn:active {
+  transform: scale(0.96) translateY(0);
 }
 
 .contact-social-btn {
@@ -641,16 +736,16 @@ body {
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  border: 1px solid #EAEAEA;
-  color: var(--accent);
-  background: #FFFFFF;
+  border: 1px solid rgba(254, 249, 246, 0.15);
+  color: var(--background);
+  background: rgba(254, 249, 246, 0.04);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .contact-social-btn:hover {
   border-color: var(--gold);
-  color: #FFF6F1;
-  background: var(--accent);
+  color: var(--accent);
+  background: var(--gold);
   transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 10px 20px rgba(87, 61, 0, 0.12);
+  box-shadow: 0 10px 25px rgba(255, 192, 84, 0.25);
 }
